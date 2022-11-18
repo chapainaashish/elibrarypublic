@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href="{% static 'books/styles.css' %}">
+{% if book.title %}
+<title>Update {{book.title}}</title>
+{% else %}
+<title>Add New Book</title>
+{% endif %}
+{% endblock title %}
+
+{% block body %}
+{% if book.title %}
+<h2 class="subheading">{{book.title}}</h2>
+{% else %}
+<h2 class="subheading">Add Book to the Library</h2>
+{% endif %}
+
+<form method='post' action='' class='main' enctype='multipart/form-data'>
+    {% csrf_token %}
+    <div>
+        <p>Title</p>
+        {{form.title}}   
+    </div>
+    <div>
+        <p>Author</p>
+        {{form.author}}
+    </div>
+    <div>
+        <p>Description</p>
+        {{form.description}}
+    </div>
+    <div>
+        <p>Cover Image</p>
+        {{form.image}}
+    </div>
+    <div style="margin-top: 15px;">
+        <input type="submit" class="btn btn-primary btn-lg", value="Save" style="width:100px">
+    </div>
+</form>
+
+{% endblock body %}

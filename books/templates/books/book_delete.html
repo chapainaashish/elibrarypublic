@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Deleted {book_title}</title>
+<link rel="stylesheet" href="{% static 'books/styles.css' %}">
+{% endblock title %}
+
+{% block body %}
+<h2 class='title'>Successfully Deleted {{book_title}} from the library</h2>
+{% endblock body %} 
